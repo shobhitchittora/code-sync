@@ -4,7 +4,7 @@
   "description": "A node utility to sync files for serving during presentations.",
   "main": "index.js",
   "scripts": {
-    "start": "cd dist && nodemon server.js /Users/shobhitchittora/Desktop/test.js --ignore test.js",
+    "start": "cd dist && nodemon server.js ../edit_this.js --ignore test.js",
     "dev": "webpack -w",
     "lint": "functionhappy | snazzy"
   },
@@ -13,11 +13,15 @@
     "code",
     "sync"
   ],
+  "engines": {
+    "node": ">=0.8"
+  },
   "author": "Shobhit Chittora",
   "license": "MIT",
   "dependencies": {
     "chokidar": "^1.6.1",
     "express": "^4.15.2",
+    "opn": "^5.0.0",
     "prismjs": "^1.6.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -38,5 +42,9 @@
     "snazzy": "^4.0.0",
     "webpack": "^1.13.1",
     "webpack-node-externals": "^1.2.0"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "nodemon": "./dist/server.js"
   }
 }

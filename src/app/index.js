@@ -10,18 +10,14 @@ const styles = {
         height: '100%'
     },
     pre: {
-        fontSize: '70%'
+        fontSize: '80%'
     }
 };
 
 export default class App extends React.Component {
-    constructor() {
-        super();
-        this.state = { code: '' }
-    }
-
-    componentWillMount() {
-        console.log('CWM');
+    constructor(props) {
+        super(props);
+        this.state = { code: this.props.code }
     }
 
     componentDidMount() {
@@ -31,9 +27,9 @@ export default class App extends React.Component {
         });
 
         socket.on('code', code => {
-            console.log(`received --> ${code}`);
+            //console.log(`received --> ${code}`);
             let html = Prism.highlight(code, Prism.languages.javascript);
-            console.log(html);
+            //console.log(html);
             this.setState({ code: html });
         });
     }

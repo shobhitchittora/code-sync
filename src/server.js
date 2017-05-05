@@ -1,4 +1,6 @@
 import express from 'express';
+'use strict';
+
 import chokidar from 'chokidar';
 import Prism from 'prismjs';
 import fs from 'fs';
@@ -11,13 +13,23 @@ import socketio from 'socket.io';
 
 const app = express();
 const server = http.createServer(app);
+
+//Sanity checks
+//--------------------------------------------
 const targetFile = process.argv[2];
 
 if (targetFile === undefined) {
-    console.log('Target file not specified!');
+    console.error('Target file not specified!');
     process.abort();
 }
 
+if (!fs.lstatSync(targetFile).isFile()) {
+    console.error('Target is not a file!');
+    process.abort();
+}
+
+//App settings
+//--------------------------------------------
 app.use('/assets', express.static('assets'));
 const port = 8080;
 
@@ -56,4 +68,8 @@ const io = socketio(server);
 
 io.on('connection', client => {
     console.log('Client connected');
-})
+});
+
+import opn from 'opn';
+opn('http://localhost:8080');
+
