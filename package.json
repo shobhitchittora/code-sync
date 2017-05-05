@@ -1,0 +1,42 @@
+{
+  "name": "code-sync",
+  "version": "1.0.0",
+  "description": "A node utility to sync files for serving during presentations.",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd dist && nodemon server.js /Users/shobhitchittora/Desktop/test.js --ignore test.js",
+    "dev": "webpack -w",
+    "lint": "functionhappy | snazzy"
+  },
+  "keywords": [
+    "node",
+    "code",
+    "sync"
+  ],
+  "author": "Shobhit Chittora",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^1.6.1",
+    "express": "^4.15.2",
+    "prismjs": "^1.6.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "functionhappy": "^1.0.0",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "snazzy": "^4.0.0",
+    "webpack": "^1.13.1",
+    "webpack-node-externals": "^1.2.0"
+  }
+}
